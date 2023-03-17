@@ -3,6 +3,7 @@
 
 #include <stdint.h>
 #include <avr/io.h>
+#include <stdavr.h>
 #include "colorstripe.h"
 #include "ws2812b.h"
 
@@ -24,34 +25,14 @@
 #error NOT SUPPORTED FREQUENCY
 #endif
 
-/** \fn __get_pointer_from_pin
- * This function return pointer from pin number.
- * @pin Pin number
- */
-static inline volatile uint8_t* __get_pointer_from_pin(uint8_t pin) {
-    #ifdef PORTA
-    return &PORTA - (pin / 8) * 3;
-    #else
-    return &PORTB - (pin / 8) * 3;
-    #endif
-}
-
-/** \fn __get_mask_from_pin
- * This function return mask for given pin.
- * @pin Pin number
- */
-static inline volatile uint8_t __get_mask_from_pin(uint8_t pin) {
-    return _BV(pin % 8);
-}
-
 /** \fn __ws2812b_send_byte
  * This function send one byte to stripe.
  * @pin Pin number to sending on
  * @data Data to send
  */
 static void __ws2812b_send_byte(uint8_t pin, uint8_t data) {
-    volatile uint8_t *port = __get_pointer_from_pin(pin);
-    uint8_t mask = __get_mask_from_pin(pin);
+    volatile uint8_t *port = pin_get_register(pin, PORT);
+    uint8_t mask = pin_get_mask(pin);
 
     *(port - 1) |= mask;
 

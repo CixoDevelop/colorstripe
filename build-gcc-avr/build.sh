@@ -1,6 +1,16 @@
 #!/bin/bash
 
-MCU="attiny13"
+if [[ $1 == "" ]]; then
+    MCU="atmega8"
+else
+    MCU=$1
+fi
+
+if [[ $2 == "" ]]; then
+    FREQ="8000000"
+else
+    FREQ=$2
+fi
 
 SOURCES_DIR="../sources/"
 SOURCES="colorstripe.c ws2812b_avr.c"
@@ -8,7 +18,7 @@ SOURCES="colorstripe.c ws2812b_avr.c"
 BUILD_DIR="../build-gcc-avr/"
 LIB="libcolorstripe.a"
 
-GCC_FLAGS="-Os -mmcu=$MCU -DF_CPU=8000000" 
+GCC_FLAGS="-Os -mmcu=$MCU -I../libs/stdavr/headers -DF_CPU=$FREQ"
 
 rm $BUILD_DIR/$LIB -rf
 rm $BUILD_DIR/*.o -rf

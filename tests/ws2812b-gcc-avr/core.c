@@ -1,6 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <colorstripe.h>
+#include <stdavr.h>
 #include <util/delay.h>
 
 /** \fn functional_tester
@@ -37,7 +38,7 @@ int main() {
     colorstripe_init (
         &stripe, 
         ws2812b_sender, 
-        AVR_CALC_PIN_NUMBER(&PORTB, 2), 
+        PIN_6,
         144
     );
 

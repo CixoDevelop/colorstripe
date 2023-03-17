@@ -31,6 +31,9 @@ After changing the settings you should call ./build.sh and the library will be
 built. Attention, after each change of the operating frequency and or of the 
 microcontroller, the library must be recompiled!!!
 
+### Support libs
+ * AVR - stdavr, You must build it and add it to Your project also. It is in
+         libs/ dir.
 
 ## How to start coding for it?
 
@@ -50,7 +53,7 @@ Let's start by creating a structure that holds a strip of LEDs.
 
 ```
 colorstripe_t stripe;
-colorsstripe(&stripe, STRIPE_TYPE_sender, STRIPE_PIN, LED_NUMBERS);
+colorstripe_init(&stripe, STRIPE_TYPE_sender, STRIPE_PIN, LED_NUMBERS);
 ```
 
 Where:
@@ -63,16 +66,10 @@ The structure of the colorstripe_t type created in this way is a representation
 of the led strip in the project. It is then used by other library functions to 
 send data to the led strip.
 
-
-### Calculate pin number
-The pin number is not just a pin number from the microcontroller chip, but a 
-number that should be calculated on this basis. How to do this depends on 
-the architecture:
- * AVR - You must use AVR_CALC_PIN_NUMBER macro. It work like function, when
-         first parameter is pin register, like &PORTA or &PORTB, second 
-         parameter is pin number in port. For example 
-         AVR_CALC_PIN_NUMBER(&PORTA, 3). To use it include pin_calc.h
-         
+### Pins select
+ * AVR - For this architecture, lib use stdavr lib to manipulating pins. You
+         can use PIN_x definition to select pin by chip physical pin. For
+         example, PIN_6 is 6 physical pin o device.
 
 So let's send some data to the diodes.
 

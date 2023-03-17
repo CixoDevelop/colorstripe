@@ -1,6 +1,7 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <util/delay.h>
+#include <stdavr.h>
 #include <colorstripe.h>
 
 /* Stripe selector */
@@ -58,14 +59,14 @@ int main() {
 
     /* Create stripe */
     colorstripe_t stripe;
-    colorstripe_init(&stripe, STRIPE_SENDER, PIN, LENGHT);
+    colorstripe_init(&stripe, STRIPE_SENDER, PIN_NUMBER, LENGHT);
 
     /* Run animation in loop */
     while (true) {
         colorstripe_functional_setter(&stripe, blinking);
         
         /* Animation frame time */
-        _delay_ms(50);
+        _delay_ms(300);
     }
 
     /* End */

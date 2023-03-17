@@ -1,5 +1,6 @@
 #include <stdbool.h>
 #include <colorstripe.h>
+#include <stdavr.h>
 
 /* Stripe selector */
 #if STRIPE==WS2812b
@@ -14,7 +15,7 @@ int main() {
 
     /* Create stripe */
     colorstripe_t stripe;
-    colorstripe_init(&stripe, STRIPE_SENDER, PIN, LENGHT);
+    colorstripe_init(&stripe, STRIPE_SENDER, PIN_NUMBER, LENGHT);
 
     /* Create array of colors, and send it */
     color_t colors[] = {{0x7F, 0x45, 0x99}, {0x00, 0xB7, 0xD4}};
