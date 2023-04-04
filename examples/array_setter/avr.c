@@ -1,6 +1,13 @@
+/*
+ * This project is a library for addressable LED strips. Allows you to use 
+ * different LED strips on different families of microcontrollers.
+ *
+ * Author: Cixo
+ */
+
 #include <stdbool.h>
-#include <colorstripe.h>
-#include <stdavr.h>
+#include <cx/colorstripe.h>
+#include <cx/avrroutine.h>
 
 /* Stripe selector */
 #if STRIPE==WS2812b

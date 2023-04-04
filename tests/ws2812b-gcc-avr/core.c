@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include <stdlib.h>
-#include <colorstripe.h>
-#include <stdavr.h>
+#include <cx/colorstripe.h>
+#include <cx/avrroutine.h>
 #include <util/delay.h>
 
 /** \fn functional_tester

@@ -1,8 +1,8 @@
 #include <stdlib.h>
 #include <stdbool.h>
 #include <util/delay.h>
-#include <stdavr.h>
-#include <colorstripe.h>
+#include <cx/avrroutine.h>
+#include <cx/colorstripe.h>
 
 /* Stripe selector */
 #if STRIPE==WS2812b

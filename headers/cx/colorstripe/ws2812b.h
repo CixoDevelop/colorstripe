@@ -2,7 +2,7 @@
  * This project is a library for addressable LED strips. Allows you to use 
  * different LED strips on different families of microcontrollers.
  *
- * Autor: Cixo
+ * Author: Cixo
  */
 
 #ifndef WS2812B_H_INCLUDED

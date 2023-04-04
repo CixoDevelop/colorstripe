@@ -13,7 +13,7 @@ DUDE="avrdude"
 
 $CC avr.c -o avr.hex -L../../build-gcc-avr/ -lcolorstripe -I../../headers/ \
     -mmcu=$MCU -DPIN_NUMBER=$PIN -DSTRIPE=$STRIPE -DLENGHT=$LENGHT \
-    -Os -DF_CPU=$FREQUENCY -L../../libs/stdavr/build-avr-gcc/ -lstdavr \
-    -I../../libs/stdavr/headers
+    -Os -DF_CPU=$FREQUENCY -L../../libs/avrroutine/build-avr-gcc/ \
+    -lavrroutine -I../../libs/avrroutine/headers
 
 $DUDE -c usbasp -p $MCU -U flash:w:avr.hex
