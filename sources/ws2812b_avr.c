@@ -3,7 +3,7 @@
 
 #include <stdint.h>
 #include <avr/io.h>
-#include <stdavr.h>
+#include <cx/avrroutine.h>
 #include "colorstripe.h"
 #include "ws2812b.h"
 

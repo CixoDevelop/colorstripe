@@ -18,7 +18,7 @@ SOURCES="colorstripe.c ws2812b_avr.c"
 BUILD_DIR="../build-gcc-avr/"
 LIB="libcolorstripe.a"
 
-GCC_FLAGS="-Os -mmcu=$MCU -I../libs/stdavr/headers -DF_CPU=$FREQ"
+GCC_FLAGS="-Os -mmcu=$MCU -I../libs/avrroutine/headers -DF_CPU=$FREQ"
 
 rm $BUILD_DIR/$LIB -rf
 rm $BUILD_DIR/*.o -rf

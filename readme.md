@@ -32,7 +32,7 @@ built. Attention, after each change of the operating frequency and or of the
 microcontroller, the library must be recompiled!!!
 
 ### Support libs
- * AVR - stdavr, You must build it and add it to Your project also. It is in
+ * AVR - avrroutine, You must build it and add it to Your project also. It is in
          libs/ dir.
 
 ## How to start coding for it?
@@ -67,8 +67,8 @@ of the led strip in the project. It is then used by other library functions to
 send data to the led strip.
 
 ### Pins select
- * AVR - For this architecture, lib use stdavr lib to manipulating pins. You
-         can use PIN_x definition to select pin by chip physical pin. For
+ * AVR - For this architecture, lib use avrroutine lib to manipulating pins. 
+         You can use PIN_x definition to select pin by chip physical pin. For
          example, PIN_6 is 6 physical pin o device.
 
 So let's send some data to the diodes.
