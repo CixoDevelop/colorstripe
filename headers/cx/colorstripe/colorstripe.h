@@ -1,3 +1,10 @@
+/*
+ * This project is a library for addressable LED strips. Allows you to use 
+ * different LED strips on different families of microcontrollers.
+ *
+ * Autor: Cixo
+ */
+
 #ifndef COLORSTRIPE_H_INCLUDED
 #define COLORSTRIPE_H_INCLUDED
 
@@ -37,10 +44,10 @@ typedef struct colorstripe_s {
 
 /** \fn colorstripe_init
  * This function initializes the led strip structure.
- * @*stripe Stripe structure to setup 
- * @*sender Sender function for stripe, that is determinate by stripe type
- * @pin Pin number to work with
- * @lenght Stripe lenght
+ * @param *stripe Stripe structure to setup 
+ * @param *sender Sender function for stripe, that is determinate by stripe
+ * @param pin Pin number to work with
+ * @param lenght Stripe lenght
  */
 void colorstripe_init(
     colorstripe_t * stripe, 
@@ -53,8 +60,8 @@ void colorstripe_init(
  * This function sends the colors calculated in real time by the function to 
  * the LEDs of the strip. This is a function that takes as parameters the 
  * diode number, the length of the strip, and returns color_t.
- * @*stripe Stripe to send data
- * @*setter Setter function 
+ * @param *stripe Stripe to send data
+ * @param *setter Setter function 
  */
 void colorstripe_functional_setter(
     colorstripe_t *stripe, 
@@ -66,9 +73,9 @@ void colorstripe_functional_setter(
  * accepts the address of this array and its size. If the size of the array 
  * is smaller than the length of the bar, then the pattern will repeat to 
  * fill the entire bar.
- * @*stripe Stripe to send data
- * @*array Array to send from
- * @lenght Array lenght
+ * @param *stripe Stripe to send data
+ * @param *array Array to send from
+ * @param lenght Array lenght
  */
 void colorstripe_array_setter(
     colorstripe_t *stripe,

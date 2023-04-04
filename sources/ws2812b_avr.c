@@ -1,3 +1,10 @@
+/*
+ * This project is a library for addressable LED strips. Allows you to use 
+ * different LED strips on different families of microcontrollers.
+ *
+ * Autor: Cixo
+ */
+
 /* This file store code only for AVR */
 #ifdef __AVR_ARCH__
 
@@ -27,8 +34,8 @@
 
 /** \fn __ws2812b_send_byte
  * This function send one byte to stripe.
- * @pin Pin number to sending on
- * @data Data to send
+ * @param pin Pin number to sending on
+ * @param data Data to send
  */
 static void __ws2812b_send_byte(uint8_t pin, uint8_t data) {
     volatile uint8_t *port = pin_get_register(pin, PORT);
@@ -71,8 +78,8 @@ static void __ws2812b_send_byte(uint8_t pin, uint8_t data) {
 /** \fn ws2812b_sender 
  * This function is a data sender for ws2812b led strip. Set it as the sender 
  * if the tape in the project is ws2812b.
- * @pin Pin to send on
- * @color Color to send
+ * @param pin Pin to send on
+ * @param color Color to send
  */
 void ws2812b_sender(uint8_t pin, color_t color) {
     __ws2812b_send_byte(pin, color.green);
